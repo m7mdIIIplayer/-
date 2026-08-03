@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173b6c">
+  <title>أتمتات شبكات الحاسوب</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">✓</span>
+      <div><strong>أتمتات شبكات الحاسوب</strong><small>اختيار من متعدد مع تصحيح فوري</small></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="homeView" class="view active">
+      <div class="hero">
+        <p class="eyebrow">اختر المحاضرة وابدأ التدريب</p>
+        <h1>اختبارات المحاضرات</h1>
+        <p>بعد اختيار الإجابة سيظهر فوراً إن كانت صحيحة أو خاطئة، مع توضيح الخيار الصحيح.</p>
+      </div>
+      <div id="lectureGrid" class="lecture-grid"></div>
+    </section>
+
+    <section id="quizView" class="view">
+      <div class="quiz-head">
+        <button id="backBtn" class="ghost-btn">العودة للمحاضرات</button>
+        <div>
+          <h2 id="lectureTitle"></h2>
+          <p id="progressText"></p>
+        </div>
+      </div>
+      <div class="progress"><span id="progressBar"></span></div>
+
+      <article class="question-card">
+        <div class="question-meta">
+          <span id="questionNumber"></span>
+          <span id="scoreText"></span>
+        </div>
+        <div class="image-wrap"><img id="questionImage" alt="صورة السؤال"></div>
+        <div id="answerButtons" class="answer-grid"></div>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+        <button id="nextBtn" class="next-btn" disabled>السؤال التالي</button>
+      </article>
+    </section>
+
+    <section id="resultView" class="view">
+      <article class="result-card">
+        <div class="result-icon">🏁</div>
+        <h2>انتهى الاختبار</h2>
+        <p id="resultLecture"></p>
+        <div id="resultScore" class="result-score"></div>
+        <div id="resultMessage" class="result-message"></div>
+        <div class="result-actions">
+          <button id="restartBtn" class="next-btn">إعادة المحاضرة</button>
+          <button id="homeBtn" class="ghost-btn">اختيار محاضرة أخرى</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="quiz-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
