@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1730">
+  <title>أتمتات شبكات الحاسوب</title>
+  <style>
+    :root{--bg:#07101f;--panel:#101c32;--panel2:#172640;--text:#f5f7fb;--muted:#aab7cc;--line:#2a3c5d;--accent:#5ca9ff;--accent2:#8bc5ff;--good:#27c47d;--bad:#ff6474;--warn:#ffc857;--shadow:0 18px 50px rgba(0,0,0,.28)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;font-family:Tahoma,Arial,sans-serif;background:radial-gradient(circle at top,#12284a 0,#07101f 46%,#050b15 100%);color:var(--text)}
+    button{font:inherit}.app{width:min(960px,calc(100% - 28px));margin:auto;padding:28px 0 50px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}.brand{font-size:clamp(20px,4vw,31px);font-weight:900}.subtitle{color:var(--muted);margin-top:6px;font-size:14px}.pill{background:rgba(92,169,255,.12);border:1px solid rgba(92,169,255,.35);color:var(--accent2);padding:8px 12px;border-radius:999px;font-weight:700;white-space:nowrap}
+    .panel{background:linear-gradient(160deg,rgba(23,38,64,.98),rgba(12,23,42,.98));border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:clamp(18px,4vw,34px)}
+    h1,h2,p{margin-top:0}.hero{text-align:center;padding:14px 5px 28px}.hero h1{font-size:clamp(28px,6vw,48px);margin-bottom:12px}.hero p{color:var(--muted);line-height:1.9;margin-bottom:0}
+    .lecture-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.lecture-card{border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:18px;padding:20px;text-align:right;color:var(--text);cursor:pointer;transition:.18s transform,.18s border-color,.18s background}.lecture-card:hover{transform:translateY(-3px);border-color:var(--accent);background:rgba(92,169,255,.09)}.lecture-card strong{display:block;font-size:20px;margin-bottom:8px}.lecture-card span{color:var(--muted)}
+    .quiz-head{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px}.quiz-title{font-size:clamp(20px,4vw,28px);font-weight:900}.progress-meta{color:var(--muted);font-size:14px;margin-top:5px}.score{font-weight:900;color:var(--accent2);white-space:nowrap}.progress{height:9px;background:#091326;border-radius:99px;overflow:hidden;margin-bottom:26px;border:1px solid var(--line)}.progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),#77e0ff);transition:width .25s ease}
+    .question{font-size:clamp(19px,3.3vw,27px);font-weight:800;line-height:1.75;margin-bottom:24px;white-space:pre-wrap}.options{display:grid;gap:12px}.option{display:flex;align-items:flex-start;gap:12px;width:100%;text-align:right;color:var(--text);background:#0c172a;border:1px solid var(--line);border-radius:15px;padding:15px 16px;cursor:pointer;line-height:1.7;transition:.15s}.option:hover:not(:disabled){border-color:var(--accent);background:#122541}.option:disabled{cursor:default}.letter{display:grid;place-items:center;flex:0 0 34px;height:34px;border-radius:10px;background:var(--panel2);border:1px solid var(--line);font-weight:900}.option.correct{border-color:var(--good);background:rgba(39,196,125,.12)}.option.correct .letter{background:var(--good);border-color:var(--good);color:#04140d}.option.wrong{border-color:var(--bad);background:rgba(255,100,116,.12)}.option.wrong .letter{background:var(--bad);border-color:var(--bad);color:#210509}
+    .feedback{display:none;margin-top:18px;padding:16px;border-radius:14px;line-height:1.8;border:1px solid}.feedback.show{display:block}.feedback.good{background:rgba(39,196,125,.1);border-color:rgba(39,196,125,.55)}.feedback.bad{background:rgba(255,100,116,.1);border-color:rgba(255,100,116,.55)}.feedback strong{display:block;margin-bottom:3px}.actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px}.btn{border:0;border-radius:13px;padding:12px 18px;font-weight:900;cursor:pointer}.btn.primary{background:linear-gradient(135deg,var(--accent),#79d6ff);color:#041325}.btn.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}.btn:disabled{opacity:.45;cursor:not-allowed}
+    .result{text-align:center}.result .big{font-size:clamp(48px,13vw,88px);font-weight:1000;color:var(--accent2);margin:10px 0}.result p{color:var(--muted);line-height:1.8}.result-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px}.hidden{display:none!important}.error{border-color:rgba(255,200,87,.55);background:rgba(255,200,87,.08);line-height:1.9}.error code{direction:ltr;display:inline-block;background:#07101f;padding:2px 8px;border-radius:7px}.footer{text-align:center;color:#75849d;font-size:13px;margin-top:20px}
+    @media(max-width:600px){.app{width:min(100% - 18px,960px);padding-top:15px}.topbar{align-items:flex-start}.pill{font-size:12px}.panel{border-radius:18px}.quiz-head{align-items:flex-start}.actions{align-items:stretch}.actions .btn{flex:1}.option{padding:13px}.letter{flex-basis:31px;height:31px}}
+  </style>
+</head>
+<body>
+<main class="app">
+  <header class="topbar">
+    <div><div class="brand">أتمتات شبكات الحاسوب</div><div class="subtitle">أسئلة نصية بالكامل — دون صور أو WebP</div></div>
+    <div class="pill" id="totalPill">جاري التحميل…</div>
+  </header>
+
+  <section id="home" class="panel">
+    <div class="hero"><h1>اختر المحاضرة</h1><p>اختر إحدى المحاضرات، ثم أجب عن الأسئلة. ستظهر صحة الإجابة والخيار الصحيح مباشرة.</p></div>
+    <div id="lectureGrid" class="lecture-grid"></div>
+  </section>
+
+  <section id="quiz" class="panel hidden">
+    <div class="quiz-head"><div><div id="quizTitle" class="quiz-title"></div><div id="progressMeta" class="progress-meta"></div></div><div id="score" class="score"></div></div>
+    <div class="progress"><span id="progressBar"></span></div>
+    <div id="questionText" class="question"></div>
+    <div id="options" class="options"></div>
+    <div id="feedback" class="feedback"></div>
+    <div class="actions"><button id="homeBtn" class="btn secondary">المحاضرات</button><button id="nextBtn" class="btn primary" disabled>السؤال التالي</button></div>
+  </section>
+
+  <section id="result" class="panel result hidden">
+    <h2 id="resultTitle">انتهت المحاضرة</h2><div id="resultScore" class="big"></div><p id="resultText"></p>
+    <div class="result-actions"><button id="retryBtn" class="btn primary">إعادة المحاولة</button><button id="resultHomeBtn" class="btn secondary">اختيار محاضرة أخرى</button></div>
+  </section>
+
+  <section id="error" class="panel error hidden"><h2>تعذر تحميل ملف الأسئلة</h2><p>تأكد أن الملفين <code>index.html</code> و<code>questions.json</code> موجودان في المجلد نفسه. عند الرفع إلى GitHub Pages سيعملان مباشرة. للتجربة محلياً شغّل داخل المجلد: <code>python -m http.server 8000</code> ثم افتح <code>http://localhost:8000</code>.</p></section>
+  <div class="footer">ملف HTML واحد للواجهة + ملف JSON واحد للأسئلة والإجابات.</div>
+</main>
+<script>
+'use strict';
+const letters=['أ','ب','ج','د'];
+const els={home:document.getElementById('home'),quiz:document.getElementById('quiz'),result:document.getElementById('result'),error:document.getElementById('error'),grid:document.getElementById('lectureGrid'),total:document.getElementById('totalPill'),quizTitle:document.getElementById('quizTitle'),progressMeta:document.getElementById('progressMeta'),progressBar:document.getElementById('progressBar'),score:document.getElementById('score'),question:document.getElementById('questionText'),options:document.getElementById('options'),feedback:document.getElementById('feedback'),next:document.getElementById('nextBtn'),homeBtn:document.getElementById('homeBtn'),resultTitle:document.getElementById('resultTitle'),resultScore:document.getElementById('resultScore'),resultText:document.getElementById('resultText'),retry:document.getElementById('retryBtn'),resultHome:document.getElementById('resultHomeBtn')};
+let payload=null,currentLecture=null,index=0,correct=0,answered=false;
+const show=(name)=>{['home','quiz','result','error'].forEach(k=>els[k].classList.toggle('hidden',k!==name));window.scrollTo({top:0,behavior:'smooth'})};
+function renderHome(){els.grid.innerHTML='';payload.lectures.forEach(lec=>{const b=document.createElement('button');b.className='lecture-card';b.innerHTML=`<strong>${escapeHtml(lec.title)}</strong><span>${lec.questions.length} سؤالاً</span>`;b.onclick=()=>startLecture(lec.id);els.grid.appendChild(b)});show('home')}
+function startLecture(id){currentLecture=payload.lectures.find(x=>x.id===id);index=0;correct=0;answered=false;renderQuestion();show('quiz')}
+function renderQuestion(){const q=currentLecture.questions[index];answered=false;els.next.disabled=true;els.next.textContent=index===currentLecture.questions.length-1?'عرض النتيجة':'السؤال التالي';els.quizTitle.textContent=currentLecture.title;els.progressMeta.textContent=`السؤال ${index+1} من ${currentLecture.questions.length}`;els.score.textContent=`الصحيح: ${correct}`;els.progressBar.style.width=`${((index+1)/currentLecture.questions.length)*100}%`;els.question.textContent=q.question;els.feedback.className='feedback';els.feedback.textContent='';els.options.innerHTML='';q.options.forEach((text,i)=>{const b=document.createElement('button');b.className='option';b.dataset.letter=letters[i];b.innerHTML=`<span class="letter">${letters[i]}</span><span>${escapeHtml(text)}</span>`;b.onclick=()=>choose(b,letters[i]);els.options.appendChild(b)})}
+function choose(button,letter){if(answered)return;answered=true;const q=currentLecture.questions[index];const all=[...els.options.children];all.forEach(b=>b.disabled=true);const answerIndex=letters.indexOf(q.answer);const right=all[answerIndex];if(letter===q.answer){correct++;button.classList.add('correct');els.feedback.className='feedback good show';els.feedback.innerHTML=`<strong>إجابة صحيحة ✓</strong>${escapeHtml(q.options[answerIndex])}`}else{button.classList.add('wrong');right.classList.add('correct');els.feedback.className='feedback bad show';els.feedback.innerHTML=`<strong>إجابة خاطئة ✗</strong>الإجابة الصحيحة: <b>${q.answer}) ${escapeHtml(q.options[answerIndex])}</b>`}els.score.textContent=`الصحيح: ${correct}`;els.next.disabled=false}
+function next(){if(!answered)return;if(index<currentLecture.questions.length-1){index++;renderQuestion()}else finish()}
+function finish(){const total=currentLecture.questions.length,percent=Math.round(correct/total*100);els.resultTitle.textContent=`نتيجة ${currentLecture.title}`;els.resultScore.textContent=`${correct} / ${total}`;let msg=percent>=90?'ممتاز جداً!':percent>=75?'نتيجة قوية.':percent>=60?'جيد، وتحتاج إلى مراجعة بسيطة.':'راجع الأخطاء وأعد المحاولة.';els.resultText.textContent=`نسبتك ${percent}٪ — ${msg}`;show('result')}
+function escapeHtml(v){return String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+els.next.onclick=next;els.homeBtn.onclick=renderHome;els.resultHome.onclick=renderHome;els.retry.onclick=()=>startLecture(currentLecture.id);
+fetch('./questions.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(d=>{payload=d;const total=d.lectures.reduce((s,l)=>s+l.questions.length,0);els.total.textContent=`${total} سؤالاً نصياً`;renderHome()}).catch(err=>{console.error(err);els.total.textContent='خطأ في التحميل';show('error')});
+</script>
+</body>
+</html>
